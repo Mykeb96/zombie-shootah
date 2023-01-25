@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scripts/scoreLabel.gd" type="Script" id=1]
+[ext_resource path="res://scripts/restart.gd" type="Script" id=2]
+[ext_resource path="res://sounds/dead.mp3" type="AudioStream" id=3]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 363.0
+margin_top = 217.0
+margin_right = -361.0
+margin_bottom = -139.0
+script = ExtResource( 2 )
+
+[node name="GameOver" type="Label" parent="."]
+margin_left = 118.0
+margin_top = 28.0
+margin_right = 194.0
+margin_bottom = 42.0
+text = "Game Over"
+
+[node name="ScoreLabel" type="Label" parent="."]
+margin_left = 129.0
+margin_top = 45.0
+margin_right = 185.0
+margin_bottom = 62.0
+text = "Score: 0"
+script = ExtResource( 1 )
+
+[node name="Button" type="Button" parent="."]
+anchor_left = 0.523
+anchor_top = 0.536
+anchor_right = 0.523
+anchor_bottom = 0.536
+margin_left = -32.808
+margin_top = -51.32
+margin_right = 31.192
+margin_bottom = -12.32
+text = "Restart"
+
+[node name="dead" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
